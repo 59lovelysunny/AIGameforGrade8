@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI 逻辑密室闯关抽题器</title>
+    <meta
+      name="description"
+      content="AI 逻辑密室闯关：校园梅花档案随机抽题网页，支持查看答案与 30 秒倒计时。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="stage" aria-labelledby="app-title">
+        <div class="topbar">
+          <div>
+            <p class="eyebrow">校园梅花档案</p>
+            <h1 id="app-title">AI 逻辑密室闯关抽题器</h1>
+          </div>
+          <div class="counter" aria-live="polite">
+            <span id="draw-count">0</span>
+            <small>已抽题</small>
+          </div>
+        </div>
+
+        <div class="control-row" aria-label="关卡选择">
+          <button class="chip is-active" type="button" data-range="all">全部 100</button>
+          <button class="chip" type="button" data-range="normal">普通 1-60</button>
+          <button class="chip" type="button" data-range="challenge">挑战 61-90</button>
+          <button class="chip" type="button" data-range="final">终极 91-100</button>
+        </div>
+
+        <section class="question-card" aria-live="polite">
+          <div class="card-head">
+            <div>
+              <span class="label">当前题目</span>
+              <strong id="question-id">--</strong>
+            </div>
+            <div class="timer" id="timer" aria-label="倒计时">30</div>
+          </div>
+
+          <p class="question" id="question-text">点击“随机抽题”开始。</p>
+
+          <div class="answer-panel" id="answer-panel" hidden>
+            <span class="label">标准答案</span>
+            <p id="answer-text"></p>
+          </div>
+
+          <div class="actions">
+            <button class="primary" id="draw-button" type="button">随机抽题</button>
+            <button class="secondary" id="answer-button" type="button" disabled>查看答案</button>
+            <button class="ghost" id="copy-button" type="button" disabled>复制题目</button>
+            <button class="ghost" id="reset-button" type="button">重置记录</button>
+          </div>
+        </section>
+
+        <section class="status-grid" aria-label="抽题状态">
+          <div>
+            <span class="label">题库状态</span>
+            <strong id="bank-status">加载中</strong>
+          </div>
+          <div>
+            <span class="label">当前范围</span>
+            <strong id="range-status">全部 100</strong>
+          </div>
+          <div>
+            <span class="label">剩余题目</span>
+            <strong id="remaining-status">--</strong>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

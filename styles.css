@@ -1,0 +1,282 @@
+:root {
+  --bg: #f6f7fb;
+  --panel: #ffffff;
+  --ink: #182033;
+  --muted: #667085;
+  --line: #d9dee8;
+  --accent: #146c94;
+  --accent-strong: #0c4d6e;
+  --gold: #b8872f;
+  --danger: #b42318;
+  --success: #167044;
+  --shadow: 0 20px 60px rgba(24, 32, 51, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background:
+    linear-gradient(180deg, rgba(20, 108, 148, 0.08), transparent 260px),
+    var(--bg);
+  font-family:
+    "Microsoft YaHei",
+    "PingFang SC",
+    "Segoe UI",
+    Arial,
+    sans-serif;
+}
+
+button {
+  font: inherit;
+}
+
+.shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 18px;
+}
+
+.stage {
+  width: min(980px, 100%);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+
+.topbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.eyebrow,
+.label {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+h1 {
+  margin: 4px 0 0;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.counter {
+  min-width: 92px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  text-align: center;
+  background: #fbfcff;
+}
+
+.counter span {
+  display: block;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--accent-strong);
+  line-height: 1;
+}
+
+.counter small {
+  color: var(--muted);
+}
+
+.control-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.chip,
+.secondary,
+.ghost,
+.primary {
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  min-height: 42px;
+  padding: 0 16px;
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    border-color 0.12s ease,
+    background 0.12s ease;
+}
+
+.chip {
+  background: #fff;
+  color: var(--ink);
+}
+
+.chip.is-active {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.question-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 22px;
+  background: #fbfcff;
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#question-id {
+  display: block;
+  margin-top: 3px;
+  font-size: 18px;
+}
+
+.timer {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  color: var(--accent-strong);
+  background: #fff;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.timer.is-low {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.question {
+  min-height: 120px;
+  margin: 0 0 18px;
+  font-size: clamp(24px, 4vw, 38px);
+  line-height: 1.35;
+  font-weight: 750;
+  letter-spacing: 0;
+}
+
+.answer-panel {
+  margin: 0 0 18px;
+  padding: 16px;
+  border: 1px solid rgba(184, 135, 47, 0.35);
+  border-radius: 8px;
+  background: #fff8e8;
+}
+
+.answer-panel p {
+  margin: 4px 0 0;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800;
+  color: #6f4e12;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.primary {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+  font-weight: 700;
+}
+
+.secondary {
+  color: var(--accent-strong);
+  background: #fff;
+  font-weight: 700;
+}
+
+.ghost {
+  color: var(--ink);
+  background: #fff;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.status-grid > div {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  background: #fff;
+}
+
+.status-grid strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 17px;
+}
+
+@media (max-width: 720px) {
+  .shell {
+    align-items: stretch;
+    padding: 12px;
+  }
+
+  .stage {
+    padding: 18px;
+  }
+
+  .topbar {
+    flex-direction: column;
+  }
+
+  .counter {
+    width: 100%;
+  }
+
+  .question-card {
+    padding: 16px;
+  }
+
+  .question {
+    min-height: 150px;
+  }
+
+  .actions button,
+  .chip {
+    flex: 1 1 150px;
+  }
+
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
+}
