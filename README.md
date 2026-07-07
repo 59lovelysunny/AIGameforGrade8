@@ -25,12 +25,24 @@ http://127.0.0.1:8088/
 
 ## GitHub Pages
 
-仓库推送到 `main` 分支后，GitHub Actions 会自动部署静态网页。
+本项目已经准备了 `gh-pages` 分支，推荐直接从该分支发布静态网页。
 
-如果第一次部署没有生成页面，请到仓库：
+到仓库：
 
 ```text
 Settings -> Pages -> Build and deployment -> Source
 ```
 
-选择 `GitHub Actions`，然后重新运行 `Deploy static site to GitHub Pages` 工作流。
+选择：
+
+```text
+Deploy from a branch
+Branch: gh-pages
+Folder: / (root)
+```
+
+保存后等待 1-3 分钟，公网访问地址通常是：
+
+```text
+https://59lovelysunny.github.io/AIGameforGrade8/
+```
